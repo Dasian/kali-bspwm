@@ -59,6 +59,7 @@ setup () {
 	clear
 	banner
 	echo -ne "${White} [${Blue}!${White}] Do you want to continue with the installation? Y|N ▶ ${Red}"
+	# TODO make this if statement better
 	read quest
 if [ $quest = Y ]; then
 
@@ -76,13 +77,14 @@ if [ $quest = Y ]; then
 		fi
 
 		# installing config files (some files still need to be +x)
+		# TODO ask to change config
 		echo -e "${White} [${Blue}+${White}] ${themepkg} is installed, installing configuration"
 		cd ${CWD}/.config
 		sudo rm -rf ${HOME}/.config/${themepkg}
 		cp -r ${themepkg} ${HOME}/.config/${themepkg}
 	done
 
-	# TODO set configs as executable
+	# set configs as executable
 	echo -e "${White} [${Blue}+${White}] Making config files executable..."
 	chmod +x ${HOME}/.config/bspwm/bspwmrc
 	chmod +x ${HOME}/.config/sxhkd/sxhkdrc
@@ -113,11 +115,11 @@ if [ $quest = Y ]; then
 		"Zenitsu"
 		do 
 			echo -e "${White} [${Blue}+${White}] Installing theme ${Red}${THEMENAME}"
-			chmod +x ${HOME}/.themes/${THEMENAME}/bspwmrc
 			# polybar pentest modules
 			chmod +x ${HOME}/.themes/${THEMENAME}/scripts/*.sh
+			chmod +x ${HOME}/.themes/${THEMENAME}/bspwmrc
 		done
-
+	# wallpapers
 	cd ${CWD}
 	cp -r scripts ${HOME}
 	chmod +x ${HOME}/scripts/*.sh
@@ -127,6 +129,7 @@ if [ $quest = Y ]; then
 	echo -e "${White} [${Blue}i${White}] Step 12 Installing preferred packages"
 	cd ${CWD}
 	cp zshrc ${HOME}/.zshrc
+	cp vimrc ${HOME}/.vimrc
 	# cd ; git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
 
 fi
