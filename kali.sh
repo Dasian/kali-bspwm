@@ -124,12 +124,10 @@ if [ $quest = Y ]; then
 	chmod +x ${HOME}/scripts/wall-scripts/*.sh
 
 	# TODO add your preferred packages!
-	echo -e "${White} [${Blue}i${White}] Step 12 Installing ??? for normal users"
-
+	echo -e "${White} [${Blue}i${White}] Step 12 Installing preferred packages"
 	cd ${CWD}
-	cp -r .zshrc .p10k.zsh ${HOME}
-	echo ""
-	cd ; git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
+	cp zshrc ${HOME}/.zshrc
+	# cd ; git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
 
 fi
 }
