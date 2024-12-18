@@ -33,6 +33,9 @@ bspc config pointer_follows_focus true
 bspc config gapless_monocle true
 bspc config paddingless_monocle true
 
+# 2024-12-18 fix vertical split
+bspc config automatic_scheme alternate
+
 #bspc rule -a 'Gnome-terminal' state=floating rectangle=1000x600+150+150 center=true
 #bspc rule -a 'Google-chrome' desktop='I'
 #bspc rule -a 'firefox' desktop='I'
