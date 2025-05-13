@@ -345,7 +345,7 @@ alias lock="betterlockscreen -l dim"
 alias img="kitty +kitten icat"
 alias cat="batcat"
 #alias ls="colorls --sd -A"
-alias ls="lsd -A -l"
+# alias ls="lsd -A -l"
 alias catn="/usr/bin/cat"
 alias clock="tty-clock -sxc -C 2"
 alias pipes="cd /home/${user}/scripts/pipes.sh && ./pipes.sh -t 9"
@@ -359,3 +359,9 @@ bash /home/${user}/scripts/shell-color-scripts/colorscript.sh -r
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# DASIAN TIME
+# adding better zsh vi mode (this is the arch installation method)
+# TODO might need to install ohmyzsh
+source /usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+# plugins+=(zsh-vi-mode)
