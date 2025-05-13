@@ -24,7 +24,7 @@ CONDIR="/home/${USERNAME}"
 trap ctrl_c INT
 
 # EXIT THE SCRIPT CTRL-C
-function ctrl_c () {
+ctrl_c () {
 echo ""
 echo ""
 echo -e "${Blue} ${White}[${Cyan}i${White}] Exiting the theming script"
@@ -80,7 +80,7 @@ GetTheme() {
 	esac
 }
 
-Penetrationthemes () {
+PenetrationThemes () {
 	# sets THEMENAME
 	GetTheme
 
@@ -120,3 +120,7 @@ Penetrationthemes () {
 	echo -e " ${White}[${Cyan}i${White}] ${Red}[${THEMENAME}]${White} theme applied correctly"
 	exit 0
 }
+
+# run the script lol
+reset
+PenetrationThemes
