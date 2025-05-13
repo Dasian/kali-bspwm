@@ -23,6 +23,7 @@ DISTRIBUTION=$(uname -o)
 HOST=$(uname -n)
 BIT=$(uname -m)
 CWD=$(pwd)
+rice_scripts="${HOME}/.themes/rice-scripts"
 
 # SCRIPT PRESENTATION
 banner () {
@@ -105,7 +106,8 @@ if [ $quest = Y ]; then
 	missing_dependencies
 	echo -e "${White} [${Blue}i${White}] Installing bspwm themes"
 	cd ${CWD}
-	cp -r .themes ${HOME}
+	cp -r themes ${HOME}/.themes
+	chmod +x "${rice_scripts}/*.sh"
 	echo ""
 	for THEMENAME in "Camila" \
 		"Esmeralda" \
@@ -125,14 +127,9 @@ if [ $quest = Y ]; then
 			themed_bspwmrc_dir="${HOME}/.themes/${THEMENAME}/bspwmrc"
 			cp ${CWD}/.config/bspwm/bspwmrc $themed_bspwmrc_dir
 			chmod +x $themed_bspwmrc_dir
-			echo "\${HOME}/scripts/set-wallpaper.sh ${THEMENAME} -r &" >> "${themed_bspwmrc_dir}"
+			echo "\${HOME}/.themes/rice-scripts/set-wallpaper.sh ${THEMENAME} -r &" >> "${themed_bspwmrc_dir}"
 
 		done
-
-	# wallpapers and others
-	cd ${CWD}
-	cp -r scripts ${HOME}
-	chmod +x ${HOME}/scripts/*.sh
 
 	# TODO add your preferred packages!
 	echo -e "${White} [${Blue}i${White}] Step 12 Installing preferred packages"
