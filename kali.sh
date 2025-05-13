@@ -69,7 +69,7 @@ if [ $quest = Y ]; then
 	for themepkg in "${themepackages[@]}";
 	do
 		echo -e "${White} [${Blue}i${White}] checking if ${themepkg} is installed"
-		if dpkg -s ${themepkg} &>/dev/null; then
+		if [[ ! dpkg -s ${themepkg} &>/dev/null ]]; then
 			echo -e "${White} [${Red}-${White}] ${themepkg} is not installed, installing bspwm"
 			sudo apt install ${themepkg} -y
 		fi
