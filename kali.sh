@@ -77,7 +77,7 @@ if [ $quest = Y ]; then
 		# installing config files (some files still need to be +x)
 		# TODO ask to change config
 		echo -e "${White} [${Blue}+${White}] ${themepkg} is installed, installing configuration"
-		cd ${CWD}/.config
+		cd ${CWD}/config
 		sudo rm -rf ${HOME}/.config/${themepkg}
 		cp -r ${themepkg} ${HOME}/.config/${themepkg}
 	done
@@ -125,7 +125,7 @@ if [ $quest = Y ]; then
 			# create a copy of master bspwmrc (.config/bspwm/bspwmrc)
 			# add themed wallpaper
 			themed_bspwmrc_dir="${HOME}/.themes/${THEMENAME}/bspwmrc"
-			cp ${CWD}/.config/bspwm/bspwmrc $themed_bspwmrc_dir
+			cp ${CWD}/config/bspwm/bspwmrc $themed_bspwmrc_dir
 			chmod +x $themed_bspwmrc_dir
 			echo "\${HOME}/.themes/rice-scripts/set-wallpaper.sh ${THEMENAME} -r &" >> "${themed_bspwmrc_dir}"
 
