@@ -51,3 +51,4 @@ bspc rule -a 'Synaptic' state=floating follow=on
 
 picom &
 ${HOME}/.config/polybar/launch.sh --cuts &
+${HOME}/.themes/rice-scripts/set-wallpaper.sh Camila &
