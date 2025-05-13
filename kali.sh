@@ -66,7 +66,7 @@ if [ $quest = Y ]; then
 		"cava" 
 		"polybar"
 	)
-	for themepkg in "${themepackages[@]}"
+	for themepkg in "${themepackages[@]}";
 	do
 		echo -e "${White} [${Blue}i${White}] checking if ${themepkg} is installed"
 		if dpkg -s ${themepkg} &>/dev/null; then
