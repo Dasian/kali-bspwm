@@ -69,7 +69,7 @@ if [ $quest = Y ]; then
 	for themepkg in "${themepackages[@]}";
 	do
 		echo -e "${White} [${Blue}i${White}] checking if ${themepkg} is installed"
-		if [[ ! dpkg -s ${themepkg} &>/dev/null ]]; then
+		if ! dpkg -s ${themepkg} &>/dev/null ; then
 			echo -e "${White} [${Red}-${White}] ${themepkg} is not installed, installing bspwm"
 			sudo apt install ${themepkg} -y
 		fi
@@ -106,7 +106,7 @@ if [ $quest = Y ]; then
 	echo -e "${White} [${Blue}i${White}] Installing bspwm themes"
 	cd ${CWD}
 	cp -r themes ${HOME}/.themes
-	chmod +x "${rice_scripts}/*.sh"
+	chmod +x ${rice_scripts}/*.sh
 	echo ""
 	for THEMENAME in "Camila" \
 		"Esmeralda" \
@@ -144,7 +144,7 @@ if [ $quest = Y ]; then
 	# https://github.com/ohmyzsh/ohmyzsh
 	sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-	# zsh vi mode TODO where to install?
+	# zsh vi mode 
 	git clone https://github.com/jeffreytse/zsh-vi-mode ${HOME}/.zsh-vi-mode
 
 fi
