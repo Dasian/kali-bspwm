@@ -103,7 +103,6 @@ if [ $quest = Y ]; then
 	sudo cp -r .fonts /usr/share/fonts
 
 	# installing themes
-	missing_dependencies
 	echo -e "${White} [${Blue}i${White}] Installing bspwm themes"
 	cd ${CWD}
 	cp -r themes ${HOME}/.themes
@@ -146,8 +145,7 @@ if [ $quest = Y ]; then
 	sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 	# zsh vi mode TODO where to install?
-	# ~/.oh-my-zsh ?
-	# git clone https://github.com/jeffreytse/zsh-vi-mode /usr/share/zsh/plugins/zsh-vi-mode
+	git clone https://github.com/jeffreytse/zsh-vi-mode ${HOME}/.zsh-vi-mode
 
 fi
 }
