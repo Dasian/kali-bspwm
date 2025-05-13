@@ -42,18 +42,6 @@ banner () {
 	echo -e "${White} [${Blue}i${White}] Hello ${Red}${USERNAME}${White}, This is the bspwm installation script for kali linux"
 }
 
-# INSTALLATION OF MISSING DEPENDENCIES
-missing_dependencies () {
-	echo ""
-	echo -e "${White} [${Blue}i${White}] Step 9 installing missing dependencies"
-	sleep 2
-	echo ""
-	sudo apt install rofi fonts-firacode fonts-cantarell lxappearance nitrogen lsd betterlockscreen flameshot git net-tools xclip xdotool -y
-	echo ""
-	sudo apt install scrub bat tty-clock openvpn feh pulseaudio-utils git lolcat -y
-	echo ""
-}
-
 # INSTALL BSPWM KALI LINUX SETUP
 setup () {
 	clear
@@ -67,7 +55,16 @@ if [ $quest = Y ]; then
 	sudo apt update
 
 	# installing core packages for the theme
-	declare -a themepackages=("bspwm" "sxhkd" "kitty" "picom" "neofetch" "ranger" "cava" "polybar")
+	declare -a themepackages=(
+		"bspwm" 
+		"sxhkd" 
+		"kitty" 
+		"picom" 
+		"neofetch" 
+		"ranger" 
+		"cava" 
+		"polybar"
+	)
 	for themepkg in "${themepackages[@]}"
 	do
 		echo -e "${White} [${Blue}i${White}] checking if ${themepkg} is installed"
@@ -91,6 +88,11 @@ if [ $quest = Y ]; then
 	chmod +x ${HOME}/.config/polybar/launch.sh
 	chmod +x ${HOME}/.config/polybar/cuts/scripts/checkupdates
 	chmod +x ${HOME}/.config/polybar/cuts/scripts/*.sh
+
+	# other packages
+	echo -e "${White} [${Blue}i${White}] Installing missing dependencies"
+	sudo apt install rofi fonts-firacode fonts-cantarell lxappearance nitrogen lsd betterlockscreen flameshot git net-tools xclip xdotool -y
+	sudo apt install scrub bat tty-clock openvpn feh pulseaudio-utils git lolcat -y
 
 	# installing fonts
 	echo -e "${White} [${Blue}i${White}] Installing fonts"
@@ -131,6 +133,17 @@ if [ $quest = Y ]; then
 	cp zshrc ${HOME}/.zshrc
 	cp vimrc ${HOME}/.vimrc
 	# cd ; git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
+
+	# colorscript
+	# it's the terminal prompt stuff which is cute
+
+	# oh my zsh install
+	# https://github.com/ohmyzsh/ohmyzsh
+	sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+	# zsh vi mode TODO where to install?
+	# ~/.oh-my-zsh ?
+	# git clone https://github.com/jeffreytse/zsh-vi-mode /usr/share/zsh/plugins/zsh-vi-mode
 
 fi
 }
