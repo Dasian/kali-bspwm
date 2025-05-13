@@ -52,7 +52,7 @@ setup () {
 if [ $quest = Y ]; then
 
 	echo "Updating system..."
-	sudo apt update
+	sudo apt update -y
 
 	# installing core packages for the theme
 	declare -a themepackages=(
@@ -119,13 +119,20 @@ if [ $quest = Y ]; then
 			echo -e "${White} [${Blue}+${White}] Installing theme ${Red}${THEMENAME}"
 			# polybar pentest modules
 			chmod +x ${HOME}/.themes/${THEMENAME}/scripts/*.sh
-			chmod +x ${HOME}/.themes/${THEMENAME}/bspwmrc
+
+			# create a copy of master bspwmrc (.config/bspwm/bspwmrc)
+			# add themed wallpaper
+			themed_bspwmrc_dir="${HOME}/.themes/${THEMENAME}/bspwmrc"
+			cp ${CWD}/.config/bspwm/bspwmrc $themed_bspwmrc_dir
+			chmod +x $themed_bspwmrc_dir
+			echo "\${HOME}/scripts/set-wallpaper.sh ${THEMENAME} -r &" >> "${themed_bspwmrc_dir}"
+
 		done
-	# wallpapers
+
+	# wallpapers and others
 	cd ${CWD}
 	cp -r scripts ${HOME}
 	chmod +x ${HOME}/scripts/*.sh
-	chmod +x ${HOME}/scripts/wall-scripts/*.sh
 
 	# TODO add your preferred packages!
 	echo -e "${White} [${Blue}i${White}] Step 12 Installing preferred packages"
