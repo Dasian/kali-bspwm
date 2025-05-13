@@ -31,7 +31,7 @@ fi
 
 install_addons () {
 echo ""
-echo -e "${White} [${Blue}i${White}] Last step installing the powerlevel10k, fzf, sudo-plugin, and others for the root user"
+echo -e "${White} [${Blue}i${White}] Last step installing the powerlevel10k, sudo-plugin, and others for the root user"
 sleep 3
 echo ""
 cd ${RUTE} ; cp -r scripts /root
@@ -44,10 +44,7 @@ rm -rf /root/scripts/shell-color-scripts/colorscript.sh
 cd /root/scripts ; mv colorscripts colorscript.sh /root/scripts/shell-color-scripts
 chmod +x /root/scripts/shell-color-scripts/colorscript.sh ; cd /root/scripts/shell-color-scripts/colorscripts
 echo ""
-chmod +x * ; cd /root ; git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-~/.fzf/install
 echo ""
-cd /root/scripts ; git clone https://github.com/pipeseroni/pipes.sh.git
 echo ""
 }
 
