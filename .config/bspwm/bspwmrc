@@ -51,4 +51,3 @@ bspc rule -a 'Synaptic' state=floating follow=on
 
 picom &
 ${HOME}/.config/polybar/launch.sh --cuts &
-${HOME}/scripts/wall-scripts/camila_wal.sh &
