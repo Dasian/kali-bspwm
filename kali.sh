@@ -164,6 +164,10 @@ if [ $quest = Y ]; then
 	echo -e "${White} [${Blue}i${White}] Step 12 Installing preferred packages"
 	cd ${CWD}
 
+	# make colorscript themes usable
+	# the little icons when you make a new terminal
+	chmod +x ${HOME}/.themes/rice-scripts/colorscripts/*
+
 	# maybe put back p10k stuff?
 
 	# zsh vi mode 
@@ -172,8 +176,7 @@ if [ $quest = Y ]; then
 	# oh my zsh install
 	# https://github.com/ohmyzsh/ohmyzsh
 	echo -e "${White} [${Blue}i${White}] Installing oh my zsh"
-	wget -O https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
-	mv install.sh /tmp
+	wget -o=/tmp/install.sh https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
 	sh /tmp/install.sh
 
 	# personal config files
