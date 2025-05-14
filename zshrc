@@ -354,7 +354,7 @@ alias pipes="cd /home/${user}/.themes/rice-scripts/pipes.sh && ./pipes.sh -t 9"
 alias clsram="sudo sync && sudo sysctl -w vm.drop_caches=3"
 #alias metasrule="cat /home/alvinpix/Escritorio/PX-games/Services/metasrule"
 alias cachefont="fc-cache -fv"
-alias colorscript="bash /home/${user}/.themes/rice-scripts/shell-color-scripts/colorscript.sh -r"
+alias colorscript="bash /home/${user}/.themes/rice-scripts/colorscript.sh -r"
 bash /home/${user}/.themes/rice-scripts/colorscript.sh -r
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
