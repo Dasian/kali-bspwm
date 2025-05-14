@@ -108,6 +108,27 @@ if [ $quest = Y ]; then
 	cp -r themes ${HOME}/.themes
 	chmod +x ${rice_scripts}/*.sh
 	echo ""
+	focused_border_colors=(
+		["Camila"]="#f60726"
+		["Esmeralda"]="#0dd9ed"
+		["Nami"]="#90654d"
+		["Raven"]="#5a1582"
+		["Ryan"]="#6bc462"
+		["Simon"]="#0b6599"
+		["Xavier"]="#edefec"
+		["Zenitsu"]="#f5e687"
+	)
+	normal_border_colors=(
+		["Camila"]="#838383"
+		["Esmeralda"]="#1b97dc"
+		["Nami"]="#c19e8c"
+		["Raven"]="#543c5c"
+		["Ryan"]="#1b4a2e"
+		["Simon"]="#6597a0"
+		["Xavier"]="#7d8b94"
+		["Zenitsu"]="#5e674a"
+	)
+
 	for THEMENAME in "Camila" \
 		"Esmeralda" \
 		"Nami" \
@@ -127,25 +148,32 @@ if [ $quest = Y ]; then
 			cp ${CWD}/config/bspwm/bspwmrc $themed_bspwmrc_dir
 			chmod +x $themed_bspwmrc_dir
 			echo "\${HOME}/.themes/rice-scripts/set-wallpaper.sh ${THEMENAME} -r &" >> "${themed_bspwmrc_dir}"
+			echo "bspc config focused_border_color ${focused_border_colors[$THEMENAME]}" >> "${themed_bspwmrc_dir}"
+			echo "bspc config normal_border_color ${normal_border_colors[$THEMENAME]}" >> "${themed_bspwmrc_dir}"
 
 		done
 
-	# TODO add your preferred packages!
+	# TODO install Camila as default theme hehehe
+	rm ${HOME}/.config/bspwm/bspwmrc
+	cp ${HOME}/.themes/Camila/bspwm/bspwmrc ${HOME}/.config/bspwm/bspwmrc
+	chmod +x ${HOME}/.config/bspwm/bspwmrc
+
+	# add your preferred packages!
 	echo -e "${White} [${Blue}i${White}] Step 12 Installing preferred packages"
 	cd ${CWD}
-	cp zshrc ${HOME}/.zshrc
-	cp vimrc ${HOME}/.vimrc
-	# cd ; git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
 
-	# colorscript
-	# it's the terminal prompt stuff which is cute
+	# maybe put back p10k stuff?
+
+	# zsh vi mode 
+	git clone https://github.com/jeffreytse/zsh-vi-mode ${HOME}/.zsh-vi-mode
 
 	# oh my zsh install
 	# https://github.com/ohmyzsh/ohmyzsh
 	sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-	# zsh vi mode 
-	git clone https://github.com/jeffreytse/zsh-vi-mode ${HOME}/.zsh-vi-mode
+	# personal config files
+	cp zshrc ${HOME}/.zshrc
+	cp vimrc ${HOME}/.vimrc
 
 fi
 }
