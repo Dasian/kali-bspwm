@@ -147,15 +147,15 @@ if [ $quest = Y ]; then
 			themed_bspwmrc_dir="${HOME}/.themes/${THEMENAME}/bspwmrc"
 			cp ${CWD}/config/bspwm/bspwmrc $themed_bspwmrc_dir
 			chmod +x $themed_bspwmrc_dir
-			echo "\${HOME}/.themes/rice-scripts/set-wallpaper.sh ${THEMENAME} -r &" >> "${themed_bspwmrc_dir}"
-			echo "bspc config focused_border_color ${focused_border_colors[$THEMENAME]}" >> "${themed_bspwmrc_dir}"
-			echo "bspc config normal_border_color ${normal_border_colors[$THEMENAME]}" >> "${themed_bspwmrc_dir}"
+			echo "\${HOME}/.themes/rice-scripts/set-wallpaper.sh ${THEMENAME} &" >> "${themed_bspwmrc_dir}"
+			echo "bspc config focused_border_color \\${focused_border_colors[$THEMENAME]}" >> "${themed_bspwmrc_dir}"
+			echo "bspc config normal_border_color \\${normal_border_colors[$THEMENAME]}" >> "${themed_bspwmrc_dir}"
 
 		done
 
 	# TODO install Camila as default theme hehehe
 	rm ${HOME}/.config/bspwm/bspwmrc
-	cp ${HOME}/.themes/Camila/bspwm/bspwmrc ${HOME}/.config/bspwm/bspwmrc
+	cp ${HOME}/.themes/Camila/bspwmrc ${HOME}/.config/bspwm/bspwmrc
 	chmod +x ${HOME}/.config/bspwm/bspwmrc
 
 	# add your preferred packages!
