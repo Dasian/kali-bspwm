@@ -108,6 +108,8 @@ if [ $quest = Y ]; then
 	cp -r themes ${HOME}/.themes
 	chmod +x ${rice_scripts}/*.sh
 	echo ""
+	declare -A focused_border_colors
+	declare -A normal_border_colors
 	focused_border_colors=(
 		["Camila"]="#f60726"
 		["Esmeralda"]="#0dd9ed"
@@ -148,7 +150,7 @@ if [ $quest = Y ]; then
 			cp ${CWD}/config/bspwm/bspwmrc $themed_bspwmrc_dir
 			chmod +x $themed_bspwmrc_dir
 			echo "\${HOME}/.themes/rice-scripts/set-wallpaper.sh ${THEMENAME} &" >> "${themed_bspwmrc_dir}"
-			echo "bspc config focused_border_color \\${focused_border_colors[$THEMENAME]}" >> "${themed_bspwmrc_dir}"
+			echo "bspc config focused_border_color \\${focused_border_colors["${THEMENAME}"]}" >> "${themed_bspwmrc_dir}"
 			echo "bspc config normal_border_color \\${normal_border_colors[$THEMENAME]}" >> "${themed_bspwmrc_dir}"
 
 		done
