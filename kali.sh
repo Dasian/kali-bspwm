@@ -176,7 +176,7 @@ if [ $quest = Y ]; then
 	# oh my zsh install
 	# https://github.com/ohmyzsh/ohmyzsh
 	echo -e "${White} [${Blue}i${White}] Installing oh my zsh"
-	wget -o=/tmp/install.sh https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
+	wget -O /tmp/install.sh https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
 	sh /tmp/install.sh
 
 	# personal config files
