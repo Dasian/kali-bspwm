@@ -175,12 +175,9 @@ if [ $quest = Y ]; then
 
 	# oh my zsh install
 	# https://github.com/ohmyzsh/ohmyzsh
-	echo -e "${White} [${Blue}i${White}] Installing oh my zsh"
-	wget -O /tmp/install.sh https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
-	sh /tmp/install.sh
+	sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
 	# personal config files
-	sleep 10
 	cp ${CWD}/zshrc ${HOME}/.zshrc
 	cp ${CWD}/vimrc ${HOME}/.vimrc
 	echo -e "${White} [${Blue}i${White}] Successfully installed! Log back in to the bspwm session (top right)"
